@@ -1,6 +1,6 @@
 package fattura;
 
-public class Dettaglio {
+public class Dettaglio extends PrnUtilities{
 
     private String prodotto;
     private double prezzo;
@@ -77,44 +77,6 @@ public class Dettaglio {
         } else {
             return prezzo * quantità * sconto / 100;
         }
-    }
-
-    // TODO String getWidthColumn(int width, String s )
-    public static String wc(int width, String s) {
-        boolean aDestra = true;
-        if (width < 0) {
-            aDestra = false;
-            width = -width;
-        }
-        if (s.length() == width) {
-            return s;
-        }
-        s = s.trim();
-        if (s.length() == width) {
-            return s;
-        }
-        if (s.length() > width) {
-            s = s.substring(0, width);
-        } else {
-            if (aDestra) {
-                s = String.format("%" + width + "s", s);
-            } else {
-                s = String.format("%-" + width + "s", s);
-            }
-        }
-        return s;
-    }
-
-    // TODO String getWidthColumn(int width, double d )
-    public static String wc(int width, double d) {
-        String s = String.format("%,.2f", d);
-        return wc(width, s);
-    }
-
-    // TODO String getWidthColumn(int width, int i )
-    public static String wc(int width, int i) {
-        String s = String.format("%d", i);
-        return wc(width, s);
     }
 
     public static String getTitolo() {

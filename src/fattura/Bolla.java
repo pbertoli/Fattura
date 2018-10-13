@@ -1,6 +1,6 @@
 package fattura;
 
-public class Bolla {
+public class Bolla extends PrnUtilities{
 
     private String nominativo, indirizzo, ID;
     private SimpleDate data;
@@ -106,17 +106,6 @@ public class Bolla {
         return totale;
     }
 
-    public String prnLine(char sx, char c, char dx, int[] tabs) {
-        String s = "\n" + String.valueOf(sx);
-        for (int i = 0; i < tabs.length; i++) {
-            for (int j = 0; j < tabs[i]; j++) {
-                s += String.valueOf(c);
-            }
-            s += String.valueOf(dx);
-        }
-        return s;
-    }
-
     public String prnDettagliCosti() {
         int[] tabs = {20, 12, 10, 6, 17};
         String s = Dettaglio.getTitolo()
@@ -152,10 +141,10 @@ public class Bolla {
     public String prnIntestazione() {
         int[] tabs = {69};
         String s = prnLine('+', '-', '+', tabs) + "\n"
-                + Dettaglio.wc(-41, "Destinatario: " + nominativo)
-                + Dettaglio.wc(30, "Codice: " + ID) + "\n"
-                + Dettaglio.wc(-41, "Indirizzo: " + indirizzo)
-                + Dettaglio.wc(30, "Data: " + data.toString())
+                + wc(-41, "Destinatario: " + nominativo)
+                + wc(30, "Codice: " + ID) + "\n"
+                + wc(-41, "Indirizzo: " + indirizzo)
+                + wc(30, "Data: " + data.toString())
                 + prnLine('+', '-', '+', tabs);
         return s;
     }

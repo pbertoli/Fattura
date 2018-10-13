@@ -1,6 +1,6 @@
 package fattura;
 
-public class Fattura {
+public class Fattura extends PrnUtilities{
 
     // disegno per composizione
     String nominativo, indirizzo, ID;
@@ -102,11 +102,11 @@ public class Fattura {
     public String prnIntestazione() {
         int[] tabs = {69};
         String s = bolla.prnLine('+', '-', '+', tabs) + "\n"
-                + Dettaglio.wc(-41, "Aquirente: " + nominativo)
-                + Dettaglio.wc(30, "Codice: " + ID) + "\n"
-                + Dettaglio.wc(-41, "Indirizzo: " + indirizzo)
-                + Dettaglio.wc(30, "Data: " + dataEmissione.toString()) + "\n"
-                + Dettaglio.wc(71, "Scadenza: " + dataScadenza.toString())
+                + wc(-41, "Aquirente: " + nominativo)
+                + wc(30, "Codice: " + ID) + "\n"
+                + wc(-41, "Indirizzo: " + indirizzo)
+                + wc(30, "Data: " + dataEmissione.toString()) + "\n"
+                + wc(71, "Scadenza: " + dataScadenza.toString())
                 + bolla.prnLine('+', '-', '+', tabs);
         return s;
     }
