@@ -133,13 +133,15 @@ public class Fattura {
         Dettaglio d1 = new Dettaglio("Pane", 3.20, 0.5, 0);
         Dettaglio d2 = new Dettaglio("Passata Cirio", 6.0, 10, 15);
         Dettaglio d3 = new Dettaglio("Olio", 7.3, 0.5, 2);
+        Dettaglio d4 = new Dettaglio("Aceto di Modena", 5.0, 0.5, 1);
         b.add(d3);
         b.add(d2);
         b.add(d1);
+        b.add(d4);
         Fattura f = new Fattura("Sig. Sergio Rossi", "Via della Vittoria, 2",
                 "HIL MNO 345 678V", b, 22);
         System.out.println(f);
-        System.out.println("\nSegue bolla di accompagnamento");
-        System.out.println(b);
+        //System.out.println("\nSegue bolla di accompagnamento");
+        //System.out.println(b);
     }
 }
