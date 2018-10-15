@@ -101,22 +101,22 @@ public class Fattura {
 
     public String prnIntestazione() {
         int[] tabs = {69};
-        String s = bolla.prnLine('+', '-', '+', tabs) + "\n"
+        String s = PrnUtilities.prnLine('+', '-', '+', tabs) + "\n"
                 + PrnUtilities.wc(-41, "Aquirente: " + nominativo)
                 + PrnUtilities.wc(30, "Codice: " + ID) + "\n"
                 + PrnUtilities.wc(-41, "Indirizzo: " + indirizzo)
                 + PrnUtilities.wc(30, "Data: " + dataEmissione.toString()) + "\n"
                 + PrnUtilities.wc(71, "Scadenza: " + dataScadenza.toString())
-                + bolla.prnLine('+', '-', '+', tabs);
+                + PrnUtilities.prnLine('+', '-', '+', tabs);
         return s;
     }
 
     public String prnFooter() {
         int[] tabs = {69};
-        String s = bolla.prnLine('+', '-', '+', tabs) + "\n"
+        String s = PrnUtilities.prnLine('+', '-', '+', tabs) + "\n"
                 + "Ammontare IVA: € " + String.format("%,.2f", getAmmontareIVA())
                 + "\t\t\tTotale: € " + String.format("%,.2f", getTotale())
-                + bolla.prnLine('+', '-', '+', tabs);
+                + PrnUtilities.prnLine('+', '-', '+', tabs);
         return s;
     }
 
