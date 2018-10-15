@@ -1,7 +1,8 @@
 package fattura;
 
 public class Bolla {
-
+    
+    // bolla parlante o meno
     private String nominativo, indirizzo, ID;
     private SimpleDate data;
     private Dettaglio[] dettagli;

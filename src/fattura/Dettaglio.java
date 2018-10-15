@@ -1,6 +1,6 @@
 package fattura;
 
-public class Dettaglio extends PrnUtilities{
+public class Dettaglio{
 
     private String prodotto;
     private double prezzo;
@@ -80,21 +80,27 @@ public class Dettaglio extends PrnUtilities{
     }
 
     public static String getTitolo() {
-        return "|" + wc(-20, "prodotto") + "|" + wc(12, "prezzo") + "|"
-                + wc(-10, "quantità") + "|" + wc(-6, "sconto") + "|€ "
-                + wc(15, "costo") + "|";
+        return "|" + PrnUtilities.wc(-20, "prodotto") + "|" 
+                + PrnUtilities.wc(12, "prezzo") + "|"
+                + PrnUtilities.wc(-10, "quantità") + "|"
+                + PrnUtilities.wc(-6, "sconto") + "|€ "
+                + PrnUtilities.wc(15, "costo") + "|";
     }
 
     public String dettaglioVuoto() {
-        return "|" + wc(-20, prodotto) + "|€ " + wc(10, "-") + "|"
-                + wc(10, quantità) + "|" + wc(4, sconto) + "% |€ "
-                + wc(15, "-") + "|";
+        return "|" + PrnUtilities.wc(-20, prodotto) + "|€ "
+                + PrnUtilities.wc(10, "-") + "|"
+                + PrnUtilities.wc(10, quantità) + "|"
+                + PrnUtilities.wc(4, sconto) + "% |€ "
+                + PrnUtilities.wc(15, "-") + "|";
     }
 
     public String toString() {
-        return "|" + wc(-20, prodotto) + "|€ " + wc(10, prezzo) + "|"
-                + wc(10, quantità) + "|" + wc(4, sconto) + "% |€ "
-                + wc(15, getCostoScontato()) + "|";
+        return "|" + PrnUtilities.wc(-20, prodotto) + "|€ " 
+                + PrnUtilities.wc(10, prezzo) + "|"
+                + PrnUtilities.wc(10, quantità) + "|" 
+                + PrnUtilities.wc(4, sconto) + "% |€ "
+                + PrnUtilities.wc(15, getCostoScontato()) + "|";
     }
 
     public static void test() {
