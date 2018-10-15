@@ -1,6 +1,6 @@
 package fattura;
 
-public class Bolla extends PrnUtilities{
+public class Bolla {
 
     private String nominativo, indirizzo, ID;
     private SimpleDate data;
@@ -109,14 +109,14 @@ public class Bolla extends PrnUtilities{
     public String prnDettagliCosti() {
         int[] tabs = {20, 12, 10, 6, 17};
         String s = Dettaglio.getTitolo()
-                + prnLine('+', '-', '+', tabs);
+                + PrnUtilities.prnLine('+', '-', '+', tabs);
         for (int i = 0; i < nDettagli; i++) {
             s += "\n" + dettagli[i].toString();
         }
         for (int i = nDettagli; i < dettagli.length; i++) {
-            s += prnLine('|', ' ', '|', tabs);
+            s += PrnUtilities.prnLine('|', ' ', '|', tabs);
         }
-        s += prnLine('+', '-', '+', tabs);
+        s += PrnUtilities.prnLine('+', '-', '+', tabs);
         s += "\nTotale listino: " + String.format("%,.2f", getCostoTotaleListino());
         s += "\nTotale netto: " + String.format("%,.2f", getCostoTotaleNetto());
         s += "\nSconto netto: " + String.format("%,.2f", getScontoTotaleNetto());
@@ -126,26 +126,26 @@ public class Bolla extends PrnUtilities{
     public String prnDettagli() {
         int[] tabs = {20, 12, 10, 6, 17};
         String s = Dettaglio.getTitolo()
-                + prnLine('+', '-', '+', tabs);
+                + PrnUtilities.prnLine('+', '-', '+', tabs);
         for (int i = 0; i < nDettagli; i++) {
             s += "\n" + dettagli[i].dettaglioVuoto();
         }
         for (int i = nDettagli; i < dettagli.length; i++) {
-            s += prnLine('|', ' ', '|', tabs);
+            s += PrnUtilities.prnLine('|', ' ', '|', tabs);
         }
-        s += prnLine('+', '-', '+', tabs);
+        s += PrnUtilities.prnLine('+', '-', '+', tabs);
         s += "\nTotale netto: -";
         return s;
     }
 
     public String prnIntestazione() {
         int[] tabs = {69};
-        String s = prnLine('+', '-', '+', tabs) + "\n"
-                + wc(-41, "Destinatario: " + nominativo)
-                + wc(30, "Codice: " + ID) + "\n"
-                + wc(-41, "Indirizzo: " + indirizzo)
-                + wc(30, "Data: " + data.toString())
-                + prnLine('+', '-', '+', tabs);
+        String s = PrnUtilities.prnLine('+', '-', '+', tabs) + "\n"
+                + PrnUtilities.wc(-41, "Destinatario: " + nominativo)
+                + PrnUtilities.wc(30, "Codice: " + ID) + "\n"
+                + PrnUtilities.wc(-41, "Indirizzo: " + indirizzo)
+                + PrnUtilities.wc(30, "Data: " + data.toString())
+                + PrnUtilities.prnLine('+', '-', '+', tabs);
         return s;
     }
 
